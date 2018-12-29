@@ -13,27 +13,27 @@ metadata:
   name: rook-cassandra-member
   namespace: rook-cassandra
 rules:
-  - apiGroups:
-      - ""
-    resources:
-      - pods
-    verbs:
-      - get
-  - apiGroups:
-      - ""
-    resources:
-      - services
-    verbs:
-      - get
-      - list
-      - patch
-      - watch
-  - apiGroups:
-      - cassandra.rook.io
-    resources:
-      - clusters
-    verbs:
-      - get
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - patch
+  - watch
+- apiGroups:
+  - cassandra.rook.io
+  resources:
+  - clusters
+  verbs:
+  - get
 
 ---
 
@@ -75,21 +75,21 @@ spec:
   datacenter:
     name: us-east-1
     racks:
-      - name: us-east-1a
-        members: 3
-        storage:
-          volumeClaimTemplates:
-                - metadata:
-                    name: rook-cassandra-data
-                  spec:
-                    resources:
-                      requests:
-                        storage: 5Gi
-        resources:
-          requests:
-            cpu: 1
-            memory: 2Gi
-          limits:
-            cpu: 1
-            memory: 2Gi
+    - name: us-east-1a
+      members: 3
+      storage:
+        volumeClaimTemplates:
+        - metadata:
+            name: rook-cassandra-data
+          spec:
+            resources:
+              requests:
+                storage: 5Gi
+      resources:
+        requests:
+          cpu: 1
+          memory: 2Gi
+        limits:
+          cpu: 1
+          memory: 2Gi
 
